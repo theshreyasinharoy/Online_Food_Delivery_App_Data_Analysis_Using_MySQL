@@ -1,2 +1,17 @@
 # Online_Food_Delivery_App_Data_Analysis_Using_MySQL
 This repository contains an extensive analysis of an online food delivery app dataset.
+
+### 1. What is the total amount each customer spent on the app?
+### 2. How many days has each customer visited the app?
+### 3. What was the first product purchased by each customer?
+### 4. What is the most purchased item on the menu and how many times it was purchased by all customers?
+### 5. Which item was the most popular for each customer?
+### 6. Which item was purchased first by the customer after they became a member?
+### 7. Which item was purchased just before the customer became a member?
+### 8. What is the total orders and amount spent for each member before they became a member?
+### 9. If buying each product generates points, for e.g Rs. 5 = 2 points and each product has different purchasing points, for e.g for Biriyani, Rs.5 = 1 Point, for Cheesecake, Rs.10 = 5 Points and for Kebab, Rs.5 = 1 Point. 
+### Now calculate points. collected by each customer and for which product, most points have been given till now?
+### 10. In the first one year, after a customer joins the gold program (including their join date) irrespective of what the customer has purchased they earn 5 points for every Rs.10 spent.
+### Who earned more 1 or 3 and what was their point earnings in their first year?
+### 11. Rank all transactions of the customers.
+### 12. Rank all transactions for each member whenever they are a gold member for every non gold member transaction, mark as 'NA'.
