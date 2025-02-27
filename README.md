@@ -90,11 +90,50 @@ FROM
 WHERE
        ranks = 1;
 ```
-### 6. Which item was purchased first by the customer after they became a member?
+### 6. Which item was purchased first by the customer after they became a gold member?
 ```
-
+WITH temp AS (
+SELECT
+       S.user_id,
+       product_id,
+       RANK() OVER (PARTITION BY S.user_id ORDER BY created_date) AS Ranks
+FROM
+       sales S JOIN Gold_subscription G
+ON
+       S.user_id = G.user_id
+WHERE
+       created_date >= gold_signup_date
+)
+SELECT
+       user_id,
+       product_id
+FROM
+       temp
+WHERE
+       Ranks = 1;
 ```
-### 7. Which item was purchased just before the customer became a member?
+### 7. Which item was purchased just before the customer became a gold member?
+```
+WITH temp AS (
+SELECT
+       S.user_id,
+       product_id,
+       RANK() OVER (PARTITION BY S.user_id ORDER BY created_date DESC) AS Ranks
+FROM
+       sales S JOIN Gold_subscription G
+ON
+       S.user_id = G.user_id
+WHERE
+       created_date < gold_signup_date
+)
+SELECT
+       user_id,
+       product_id
+FROM
+       temp
+WHERE
+       Ranks = 1;
+```
 ### 8. What is the total orders and amount spent for each member before they became a member?
 ### 9. If buying each product generates points, for e.g Rs. 5 = 2 points and each product has different purchasing points, for e.g for Biriyani, Rs.5 = 1 Point, for Cheesecake, Rs.10 = 5 Points and for Kebab, Rs.5 = 1 Point. 
 ### Now calculate points. collected by each customer and for which product, most points have been given till now?
